@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Menu">
+	<insert id="insertMenu" >
+		insert into lih_menu (type,oriFileName,chgFileName,fileSize, filePath, name,des) values (#{type}, #{oriFileName}, #{chgFileName}, #{fileSize}, #{filePath}, #{name}, #{des})
+	</insert>
+	<update id="updateMenu" >
+		update lih_menu set type=#{type}, oriFileName=#{oriFileName}, filePath=#{filePath}, chgFileName=#{chgFileName}, fileSize=#{fileSize}, name=#{name}, des=#{des} where id = #{id}
+	</update>
+	<delete id="deleteMenu">
+		delete from lih_menu where id=#{id}
+	</delete>
+	<select id="getMenu" resultType="com.walab.bean.MenuVO">
+		select * from lih_menu where id=#{id}
+	</select>
+	<select id="getMenuList" resultType="map">
+		select * from lih_menu order by id desc
+	</select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+
+<select id="getUser" resultType="com.walab.bean.UserVO">
+	select name, email from member
+	where name=#{name} and email=#{email}
+</select>
+
+<insert id="insertUser">
+	insert ignore into member(name, email) values (#{name}, #{email})
+</insert>
+
+<select id="readUserByEmail" resultType="Integer">
+	select id from member where email = #{email}
+</select>
+
+</mapper>
